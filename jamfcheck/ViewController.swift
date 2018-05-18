@@ -13,10 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var label_jssStatus: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     
+    func doCheck() {
         
         let (jssStatus, jssReady) = jss.checkJssStatus(host: "jss.demo.jigsaw24.com")
         
@@ -30,12 +28,23 @@ class ViewController: UIViewController {
         else {
             
             label_jssStatus.textColor = UIColor.red
-        
+            
         }
         
         label_jssStatus.isHidden = false
         
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    
+
+        doCheck()
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
